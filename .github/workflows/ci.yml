@@ -1,0 +1,57 @@
+name: CI - Run Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-python:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/my-python-package
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python and cache uv
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'uv'
+
+    - name: Install uv
+      run: pip install uv
+
+    - name: Install dependencies with uv
+      run: uv pip install pytest
+
+    - name: Run tests
+      run: pytest
+
+  test-js:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/my-ts-package
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: '**/package-lock.json'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build TypeScript
+      run: npm run build
+
+    - name: Run tests
+      run: npm test
