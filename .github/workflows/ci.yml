@@ -28,7 +28,7 @@ jobs:
       run: uv pip install --system pytest
 
     - name: Install package in editable mode
-      run: uv pip install -e .
+      run: uv pip install -e . --system
 
     - name: Run tests
       run: pytest
