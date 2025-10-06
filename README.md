@@ -5,7 +5,7 @@ This repository contains both a Python package and a TypeScript package, managed
 ## 📦 Packages
 
 -   `packages/my-python-package`: A sample Python library.
--   `packages/my-js-package`: A sample TypeScript library.
+-   `packages/my-ts-package`: A sample TypeScript library.
 
 ## 🚀 CI/CD
 
