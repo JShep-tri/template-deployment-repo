@@ -11,7 +11,8 @@ jobs:
       run:
         working-directory: ./packages/my-python-package
     permissions:
-      id-token: write # Required for trusted publishing
+      id-token: write
+    environment: release
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
