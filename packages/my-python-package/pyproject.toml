@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jshep-tri-template-deployment"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
   { name="John Shepherd", email="john.shepherd@tri.global" },
 ]
