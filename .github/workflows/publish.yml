@@ -33,6 +33,8 @@ jobs:
 
     - name: Publish package to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        packages-dir: packages/my-python-package/dist/
 
   publish-js:
     runs-on: ubuntu-latest
